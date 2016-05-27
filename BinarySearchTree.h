@@ -42,6 +42,7 @@ class BinarySearchTree
     void find(const T &value);
     void inOrder();
     void postOrder();
+    BinarySearchTree();
     ~BinarySearchTree();
 } ;  // class BinarySearchTree
 #include "BinarySearchTree.cpp"
