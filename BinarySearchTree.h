@@ -20,7 +20,7 @@ class BSTNode
 
   public:
     BSTNode(T dat, BSTNode<T> *l, BSTNode<T> *r);
-}; //VectorIterator
+}; //BSTNode
 
 
 template <class T>
