@@ -33,7 +33,7 @@ class BinarySearchTree
     void find(BSTNode<T> *t, const T &value) const;
     void inOrder(BSTNode<T> *t);
     void postOrder(BSTNode<T> *t);
-    void makeEmpty();
+    void makeEmpty(BSTNode<T> *t);
     BSTNode<T>* findMin(BSTNode<T> *t);
   protected:
 

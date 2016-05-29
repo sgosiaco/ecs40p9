@@ -18,7 +18,7 @@ BinarySearchTree<T>::BinarySearchTree() : root(NULL)
 template <class T>
 BinarySearchTree<T>::~BinarySearchTree()
 {
-
+  makeEmpty(root);
 } //decon
 
 //public versions
@@ -165,9 +165,14 @@ void BinarySearchTree<T>::postOrder(BSTNode<T> *t)
 } //postorder
 
 template <class T>
-void BinarySearchTree<T>::makeEmpty()
+void BinarySearchTree<T>::makeEmpty(BSTNode<T> *t)
 {
-
+  if(t < NULL || NULL < t)
+  {
+    postOrder(t->left);
+    postOrder(t->right);
+    delete t;
+  } //if
 } //makeEmpty
 
 template <class T>
