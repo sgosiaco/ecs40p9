@@ -117,14 +117,16 @@ BSTNode<T>* BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value)
       else
         if(t->left && !(t->right))
         {
-          t->data = t->left->data;
-          delete t->left;
+          BSTNode<T>* temp = t->left;
+          delete t;
+          return temp;
         }
         else
           if(t->right && !(t->left))
           {
-            t->data = t->right->data;
-            delete t->right;
+            BSTNode<T>* temp = t->right;
+            delete t;
+            return temp;
           }
           else
           {
