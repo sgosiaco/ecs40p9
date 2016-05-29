@@ -68,16 +68,16 @@ void BinarySearchTree<T>::insert(BSTNode<T> *t, const T &value)
 
   if(t->data < value)
   {
-    if(t->right == NULL)
+    if(!(t->right < NULL || NULL < t->right))
       t->right = new BSTNode<T>(value, NULL, NULL);
     else //not null
       insert(t->right, value);
   } //if
   else //else
   {
-    if(t->data > value)
+    if(value < t->data)
     {
-      if(t->left == NULL)
+      if(!(t->left < NULL || NULL < t->left))
         t->left = new BSTNode<T>(value, NULL, NULL);
       else //not null
         insert(t->left, value);
@@ -92,7 +92,7 @@ void BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value)
 {
   assert(t != NULL);
 
-  if(t != NULL)
+  if(t < NULL || NULL < t)
   {
     if(t->data < value)
       remove(t->right, value);
@@ -128,7 +128,7 @@ void BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value)
 template <class T>
 void BinarySearchTree<T>::find(BSTNode<T> *t, const T &value) const
 {
-  if(t != NULL)
+  if(t < NULL || NULL < t)
   {
     if(t->data < value)
       find(t->right, value);
@@ -145,7 +145,7 @@ void BinarySearchTree<T>::find(BSTNode<T> *t, const T &value) const
 template <class T>
 void BinarySearchTree<T>::inOrder(BSTNode<T> *t)
 {
-  if(t != NULL)
+  if(t < NULL || NULL < t)
   {
     inOrder(t->left);
     cout << t->data << ", ";
@@ -156,7 +156,7 @@ void BinarySearchTree<T>::inOrder(BSTNode<T> *t)
 template <class T>
 void BinarySearchTree<T>::postOrder(BSTNode<T> *t)
 {
-  if(t != NULL)
+  if(t < NULL || NULL < t)
   {
     postOrder(t->left);
     postOrder(t->right);
@@ -173,7 +173,7 @@ void BinarySearchTree<T>::makeEmpty()
 template <class T>
 BSTNode<T>* BinarySearchTree<T>::findMin(BSTNode<T> *t)
 {
-  if(t != NULL)
+  if(t < NULL || NULL < t)
   {
     BSTNode<T>* temp = findMin(t->left);
 
