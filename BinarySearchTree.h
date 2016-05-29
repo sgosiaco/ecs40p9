@@ -30,7 +30,7 @@ class BinarySearchTree
     BSTNode<T>* root;
     void insert(BSTNode<T> *t, const T &value);
     void remove(BSTNode<T> * &t, const T &value);
-    void find(BSTNode<T> *t, const T &value);
+    void find(BSTNode<T> *t, const T &value) const;
     void inOrder(BSTNode<T> *t);
     void postOrder(BSTNode<T> *t);
     void makeEmpty();
@@ -40,7 +40,7 @@ class BinarySearchTree
   public:
     void insert(const T &value);
     void remove(const T &value);
-    void find(const T &value);
+    void find(const T &value) const;
     void inOrder();
     void postOrder();
     BinarySearchTree();
