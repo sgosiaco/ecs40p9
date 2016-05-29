@@ -101,30 +101,25 @@ void BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value)
         remove(t->left, value);
       else //found
       {
-        if(!(t->right) && !(t->left))
+        if(t->left && t->right)
         {
-          delete t;
-          t = NULL;
+          BSTNode<T>* min = findMin(t->right);
+          t->data = min->data;
+          remove(t->right, t->data);
         } //if
-        else
-          if((t->left && !(t->right)) || (t->right && !(t->left)))
-          {
-            BSTNode<T>* temp = NULL;
+        else //children
+        {
+          BSTNode<T>* temp = NULL;
 
-            if(t->left)
-              temp = t->left;
-            else
+          if(t->left)
+            temp = t->left;
+          else //else
+            if(t->right)
               temp = t->right;
-            delete t;
-            t = temp;
-          } //if
-          else //children
-          {
-            BSTNode<T>* min = findMin(t->right);
-            t->data = min->data;
-            remove(t->right, t->data);
-          } //else
+          delete t;
+          t = temp;
         } //else
+      } //else
   } //if
   else //no match
     cout << "Not found." << endl;
@@ -181,6 +176,7 @@ BSTNode<T>* BinarySearchTree<T>::findMin(BSTNode<T> *t)
   if(t != NULL)
   {
     BSTNode<T>* temp = findMin(t->left);
+
     if(!temp)
       return t;
     else //else
