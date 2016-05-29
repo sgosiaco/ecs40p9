@@ -68,19 +68,19 @@ void BinarySearchTree<T>::insert(BSTNode<T> *t, const T &value)
 
   if(t->data < value)
   {
-    if(!(t->right))
-      t->right = new BSTNode<T>(value, NULL, NULL);
-    else //not null
+    if(t->right)
       insert(t->right, value);
+    else //null
+      t->right = new BSTNode<T>(value, NULL, NULL);
   } //if
   else //else
   {
     if(value < t->data)
     {
-      if(!(t->left))
-        t->left = new BSTNode<T>(value, NULL, NULL);
-      else //not null
+      if(t->left)
         insert(t->left, value);
+      else //null
+        t->left = new BSTNode<T>(value, NULL, NULL);
     } //if
     else //dupe
       cout << "Found duplicate." << endl;
