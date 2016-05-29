@@ -42,6 +42,7 @@ template <class T>
 void BinarySearchTree<T>::find(const T &value)
 {
   assert(root != NULL);
+  find(root, value);
 }
 
 template <class T>
@@ -90,7 +91,7 @@ insert(t->right, value);
     if(t->data > value)
     {
       if(t->left == NULL)
-        t->left =new BSTNode<T>(value, NULL, NULL);
+        t->left = new BSTNode<T>(value, NULL, NULL);
       else
         insert(t->left, value);
     }
@@ -106,7 +107,11 @@ void BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value)
 template <class T>
 void BinarySearchTree<T>::find(BSTNode<T> *t, const T &value)
 {
+  if(t != NULL)
+  {
+    //if(!(value < t->data || t->data < value))
 
+  }
 }
 
 template <class T>
@@ -125,8 +130,8 @@ void BinarySearchTree<T>::postOrder(BSTNode<T> *t)
 {
   if(t != NULL)
   {
-    inOrder(t->left);
-    inOrder(t->right);
+    postOrder(t->left);
+    postOrder(t->right);
     cout << t->data << ", ";
   }
 }
