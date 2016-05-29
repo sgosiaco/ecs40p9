@@ -130,7 +130,9 @@ BSTNode<T>* BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value)
           }
           else
           {
-            //has 2 children!
+            BSTNode<T>* min = findMin(t->right);
+            t->data = min->data;
+            remove(min, min->data);
           }
       }
   return t;
@@ -172,5 +174,17 @@ template <class T>
 void BinarySearchTree<T>::makeEmpty()
 {
 
+}
+
+template <class T>
+BSTNode<T>* BinarySearchTree<T>::findMin(BSTNode<T> *t)
+{
+  if(t != NULL)
+  {
+    BSTNode<T>* temp = findMin(t->left);
+    if(!temp)
+      return t;
+  }
+  return NULL;
 }
 //end private versions

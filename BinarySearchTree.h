@@ -34,6 +34,7 @@ class BinarySearchTree
     void inOrder(BSTNode<T> *t);
     void postOrder(BSTNode<T> *t);
     void makeEmpty();
+    BSTNode<T>* findMin(BSTNode<T> *t);
   protected:
 
   public:
