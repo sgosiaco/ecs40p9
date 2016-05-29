@@ -185,7 +185,7 @@ BSTNode<T>* BinarySearchTree<T>::findMin(BSTNode<T> *t)
     if(!temp)
       return t;
     else
-      return NULL;
+      return temp;
   }
   else
     return NULL;
