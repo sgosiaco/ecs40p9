@@ -35,10 +35,7 @@ template <class T>
 void BinarySearchTree<T>::remove(const T &value)
 {
   assert(root);
-  if(root != NULL)
-    remove(root, value);
-  else
-    cout << "Not found." << endl;
+  remove(root, value);
 }
 
 template <class T>
@@ -152,9 +149,16 @@ void BinarySearchTree<T>::find(BSTNode<T> *t, const T &value)
 {
   if(t != NULL)
   {
-    //if(!(value < t->data || t->data < value))
-
+    if(t->data < value)
+      find(t->right, value);
+    else
+      if(value < t->data)
+        find(t->left, value);
+      else
+        cout << "Found." << endl;
   }
+  else
+    cout << "Not found." << endl;
 }
 
 template <class T>
