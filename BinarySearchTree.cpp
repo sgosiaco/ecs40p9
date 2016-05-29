@@ -102,39 +102,42 @@ template <class T>
 void BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value)
 {
   assert(t != NULL);
-  if(t->data < value)
-    remove(t->right, value);
-  else
-    if(value < t->data)
-      remove(t->left, value);
+  if(t != NULL);
+  {
+    if(t->data < value)
+      remove(t->right, value);
     else
-    {
-      if(!(t->right) && !(t->left))
-      {
-        delete t;
-        t = NULL;
-      }
+      if(value < t->data)
+        remove(t->left, value);
       else
-        if(t->left && !(t->right))
+      {
+        if(!(t->right) && !(t->left))
         {
-          BSTNode<T>* temp = t->left;
           delete t;
-          t = temp;
+          t = NULL;
         }
         else
-          if(t->right && !(t->left))
+          if(t->left && !(t->right))
           {
-            BSTNode<T>* temp = t->right;
+            BSTNode<T>* temp = t->left;
             delete t;
             t = temp;
           }
           else
-          {
-            BSTNode<T>* min = findMin(t->right);
-            t->data = min->data;
-            remove(t->right, t->data);
-          }
-      }
+            if(t->right && !(t->left))
+            {
+              BSTNode<T>* temp = t->right;
+              delete t;
+              t = temp;
+            }
+            else
+            {
+              BSTNode<T>* min = findMin(t->right);
+              t->data = min->data;
+              remove(t->right, t->data);
+            }
+        }
+  }
 }
 
 template <class T>
