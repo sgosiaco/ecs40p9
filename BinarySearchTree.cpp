@@ -95,13 +95,41 @@ insert(t->right, value);
       else
         insert(t->left, value);
     }
-}
+  }
 }
 
 template <class T>
 void BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value)
 {
   assert(t != NULL);
+  if(t != NULL)
+  {
+    if(t->data < value)
+      remove(t->right, value);
+    else
+      if(value < t->data)
+        remove(t->left, value);
+      else
+      {
+        if(!(t->right) && !(t->left))
+          delete t;
+        if(t->left && !(t->right))
+        {
+          t->data = t->left->data;
+          delete t->left;
+        }
+        else
+          if(t->right && !(t->left))
+          {
+            t->data = t->right->data;
+            delete t->right;
+          }
+          else
+          {
+            //has 2 children!
+          }
+      }
+  }
 }
 
 template <class T>
