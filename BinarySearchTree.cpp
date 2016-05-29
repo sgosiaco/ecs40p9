@@ -169,8 +169,8 @@ void BinarySearchTree<T>::makeEmpty(BSTNode<T> *t)
 {
   if(t)
   {
-    postOrder(t->left);
-    postOrder(t->right);
+    makeEmpty(t->left);
+    makeEmpty(t->right);
     delete t;
   } //if
 } //makeEmpty
