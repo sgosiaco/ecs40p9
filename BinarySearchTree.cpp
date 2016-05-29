@@ -68,7 +68,7 @@ void BinarySearchTree<T>::insert(BSTNode<T> *t, const T &value)
 
   if(t->data < value)
   {
-    if(!((t->right < NULL) || (NULL < t->right)))
+    if(!(t->right))
       t->right = new BSTNode<T>(value, NULL, NULL);
     else //not null
       insert(t->right, value);
@@ -77,7 +77,7 @@ void BinarySearchTree<T>::insert(BSTNode<T> *t, const T &value)
   {
     if(value < t->data)
     {
-      if(!((t->left < NULL) || (NULL < t->left)))
+      if(!(t->left))
         t->left = new BSTNode<T>(value, NULL, NULL);
       else //not null
         insert(t->left, value);
