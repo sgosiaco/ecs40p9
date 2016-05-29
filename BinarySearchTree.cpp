@@ -35,7 +35,7 @@ template <class T>
 void BinarySearchTree<T>::remove(const T &value)
 {
   assert(root);
-  root = remove(root, value);
+  remove(root, value);
 }
 
 template <class T>
@@ -99,43 +99,42 @@ insert(t->right, value);
 }
 
 template <class T>
-BSTNode<T>* BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value)
+void BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value)
 {
   assert(t != NULL);
   if(t->data < value)
-    t->right = remove(t->right, value);
+    remove(t->right, value);
   else
     if(value < t->data)
-      t->left = remove(t->left, value);
+      remove(t->left, value);
     else
     {
       if(!(t->right) && !(t->left))
       {
         delete t;
-        return NULL;
+        t = NULL;
       }
       else
         if(t->left && !(t->right))
         {
           BSTNode<T>* temp = t->left;
           delete t;
-          return temp;
+          t = temp;
         }
         else
           if(t->right && !(t->left))
           {
             BSTNode<T>* temp = t->right;
             delete t;
-            return temp;
+            t = temp;
           }
           else
           {
             BSTNode<T>* min = findMin(t->right);
             t->data = min->data;
-            t->right = remove(t->right, t->data);
+            remove(t->right, t->data);
           }
       }
-  return t;
 }
 
 template <class T>
