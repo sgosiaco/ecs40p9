@@ -37,6 +37,8 @@ void BinarySearchTree<T>::remove(const T &value)
   assert(root);
   if(root != NULL)
     remove(root, value);
+  else
+    cout << "Not found.";
 }
 
 template <class T>
