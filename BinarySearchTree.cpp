@@ -132,7 +132,7 @@ BSTNode<T>* BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value)
           {
             BSTNode<T>* min = findMin(t->right);
             t->data = min->data;
-            remove(min, min->data);
+            t->right = remove(t->right, t->data);
           }
       }
   return t;
