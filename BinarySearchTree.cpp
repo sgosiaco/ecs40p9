@@ -139,6 +139,7 @@ void BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value)
             }
         }
   }
+  cout << "Not found.";
 }
 
 template <class T>
