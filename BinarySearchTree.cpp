@@ -35,7 +35,7 @@ template <class T>
 void BinarySearchTree<T>::remove(const T &value)
 {
   assert(root);
-  remove(root, value);
+  root = remove(root, value);
 }
 
 template <class T>
