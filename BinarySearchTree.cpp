@@ -98,6 +98,8 @@ insert(t->right, value);
       else
         insert(t->left, value);
     }
+    else
+      cout << "Found duplicate." << endl;
   }
 }
 
@@ -141,6 +143,8 @@ void BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value)
             }
         }
   }
+  else
+    cout << "Not found." << endl;
 }
 
 template <class T>
