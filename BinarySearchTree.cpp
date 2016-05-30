@@ -46,14 +46,14 @@ void BinarySearchTree<T>::find(const T &value) const
 } //find
 
 template <class T>
-void BinarySearchTree<T>::inOrder()
+void BinarySearchTree<T>::inOrder() const
 {
   inOrder(root);
   cout << endl;
 } //inorder
 
 template <class T>
-void BinarySearchTree<T>::postOrder()
+void BinarySearchTree<T>::postOrder() const
 {
   postOrder(root);
   cout << endl;
@@ -66,21 +66,21 @@ void BinarySearchTree<T>::insert(BSTNode<T> *t, const T &value)
 {
   assert(value < t->data || t->data < value);
 
-  if(t->data < value)
+  if(value < t->data)
   {
-    if(t->right)
-      insert(t->right, value);
+    if(t->left)
+      insert(t->left, value);
     else //null
-      t->right = new BSTNode<T>(value, NULL, NULL);
+      t->left = new BSTNode<T>(value, NULL, NULL);
   } //if
   else //else
   {
-    if(value < t->data)
+    if(t->data < value)
     {
-      if(t->left)
-        insert(t->left, value);
+      if(t->right)
+        insert(t->right, value);
       else //null
-        t->left = new BSTNode<T>(value, NULL, NULL);
+        t->right = new BSTNode<T>(value, NULL, NULL);
     } //if
     else //dupe
       cout << "Found duplicate." << endl;
@@ -94,11 +94,11 @@ void BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value)
 
   if(t)
   {
-    if(t->data < value)
-      remove(t->right, value);
+    if(value < t->data)
+      remove(t->left, value);
     else //else
-      if(value < t->data)
-        remove(t->left, value);
+      if(t->data < value)
+        remove(t->right, value);
       else //found
       {
         if(t->left && t->right)
@@ -130,11 +130,11 @@ void BinarySearchTree<T>::find(BSTNode<T> *t, const T &value) const
 {
   if(t)
   {
-    if(t->data < value)
-      find(t->right, value);
+    if(value < t->data)
+      find(t->left, value);
     else //else
-      if(value < t->data)
-        find(t->left, value);
+      if(t->data < value)
+        find(t->right, value);
       else //found
         cout << "Found." << endl;
   } //if
@@ -143,7 +143,7 @@ void BinarySearchTree<T>::find(BSTNode<T> *t, const T &value) const
 } //find
 
 template <class T>
-void BinarySearchTree<T>::inOrder(BSTNode<T> *t)
+void BinarySearchTree<T>::inOrder(BSTNode<T> *t) const
 {
   if(t)
   {
@@ -154,7 +154,7 @@ void BinarySearchTree<T>::inOrder(BSTNode<T> *t)
 } //inorder
 
 template <class T>
-void BinarySearchTree<T>::postOrder(BSTNode<T> *t)
+void BinarySearchTree<T>::postOrder(BSTNode<T> *t) const
 {
   if(t)
   {
