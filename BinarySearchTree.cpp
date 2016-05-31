@@ -103,7 +103,7 @@ void BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value)
       {
         if(t->left && t->right)
         {
-          BSTNode<T>* min = findMin(t->right);
+          const BSTNode<T>* min = findMin(t->right);
           t->data = min->data;
           remove(t->right, t->data);
         } //if
@@ -176,11 +176,11 @@ void BinarySearchTree<T>::makeEmpty(BSTNode<T> *t)
 } //makeEmpty
 
 template <class T>
-BSTNode<T>* BinarySearchTree<T>::findMin(BSTNode<T> *t)
+const BSTNode<T>* BinarySearchTree<T>::findMin(BSTNode<T> *t) const
 {
   if(t)
   {
-    BSTNode<T>* temp = findMin(t->left);
+    const BSTNode<T>* temp = findMin(t->left);
 
     if(!temp)
       return t;
