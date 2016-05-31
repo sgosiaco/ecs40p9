@@ -176,7 +176,7 @@ void BinarySearchTree<T>::makeEmpty(BSTNode<T> *t)
 } //makeEmpty
 
 template <class T>
-const BSTNode<T>* BinarySearchTree<T>::findMin(BSTNode<T> *t) const
+const BSTNode<T>* const BinarySearchTree<T>::findMin(BSTNode<T> *t) const
 {
   if(t)
   {
