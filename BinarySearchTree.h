@@ -28,12 +28,12 @@ class BinarySearchTree
 {
   private:
     BSTNode<T>* root;
-    void insert(BSTNode<T> *t, const T &value);
-    void remove(BSTNode<T> * &t, const T &value);
+    void insert(BSTNode<T> *t, const T &value) const;
+    void remove(BSTNode<T> * &t, const T &value) const;
     void find(BSTNode<T> *t, const T &value) const;
     void inOrder(BSTNode<T> *t) const;
     void postOrder(BSTNode<T> *t) const;
-    void makeEmpty(BSTNode<T> *t);
+    void makeEmpty(BSTNode<T> *t) const;
     const BSTNode<T>* const findMin(BSTNode<T> *t) const;
   protected:
 

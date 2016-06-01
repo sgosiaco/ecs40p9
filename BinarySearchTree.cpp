@@ -62,7 +62,7 @@ void BinarySearchTree<T>::postOrder() const
 
 //private versions
 template <class T>
-void BinarySearchTree<T>::insert(BSTNode<T> *t, const T &value)
+void BinarySearchTree<T>::insert(BSTNode<T> *t, const T &value) const
 {
   assert(value < t->data || t->data < value);
 
@@ -88,7 +88,7 @@ void BinarySearchTree<T>::insert(BSTNode<T> *t, const T &value)
 } //insert
 
 template <class T>
-void BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value)
+void BinarySearchTree<T>::remove(BSTNode<T> * &t, const T &value) const
 {
   assert(t != NULL);
 
@@ -165,7 +165,7 @@ void BinarySearchTree<T>::postOrder(BSTNode<T> *t) const
 } //postorder
 
 template <class T>
-void BinarySearchTree<T>::makeEmpty(BSTNode<T> *t)
+void BinarySearchTree<T>::makeEmpty(BSTNode<T> *t) const
 {
   if(t)
   {
