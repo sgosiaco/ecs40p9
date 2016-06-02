@@ -182,10 +182,10 @@ const BSTNode<T>* const BinarySearchTree<T>::findMin(const BSTNode<T> *t) const
   {
     const BSTNode<T>* temp = findMin(t->left);
 
-    if(!temp)
-      return t;
-    else //else
+    if(temp)
       return temp;
+    else //else
+      return t;
   } //if
   else //none
     return NULL;
